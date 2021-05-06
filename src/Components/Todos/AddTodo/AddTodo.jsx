@@ -8,7 +8,7 @@ import { useEffect } from "react";
 const AddTodo = () => {
   const Dispatch = useDispatch();
   const inp = useRef();
-  const [value, setValue] = useState("New");
+  const [value, setValue] = useState("");
 
   const handleChange = (e) => {
     setValue(e.target.value);
