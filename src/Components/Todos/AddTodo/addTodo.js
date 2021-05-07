@@ -3,7 +3,14 @@ import styled from "styled-components";
 export const AddTodoContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
+`;
+
+export const AddTodoForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const AddTodoHeader = styled.div`
@@ -11,7 +18,7 @@ export const AddTodoHeader = styled.div`
 `;
 
 export const AddTodoInput = styled.input`
-  width: 50%;
+  width: 100%;
   border: none;
   background-color: #ebebeb;
   height: 30px;

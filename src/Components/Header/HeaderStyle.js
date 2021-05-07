@@ -14,3 +14,13 @@ export const HeaderSection = styled.header`
     flex-direction: row;
   }
 `;
+
+export const HeaderTitle = styled.div`
+  width: 100%;
+`;
+
+export const HeaderAddTodo = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;

@@ -1,6 +1,11 @@
 import React, { useState, useRef } from "react";
 import { Title, SuccessButton } from "../../../GlobalStyles";
-import { AddTodoContainer, AddTodoHeader, AddTodoInput } from "./addTodo";
+import {
+  AddTodoContainer,
+  AddTodoForm,
+  AddTodoHeader,
+  AddTodoInput,
+} from "./addTodo";
 import { AddTodos } from "../../../Features/Todos/TodoSlice";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -27,13 +32,15 @@ const AddTodo = () => {
       <AddTodoHeader>
         <Title>Add Todos</Title>
       </AddTodoHeader>
-      <AddTodoInput
-        ref={inp}
-        name="add-todo"
-        value={value}
-        onChange={handleChange}
-      />
-      <SuccessButton onClick={handleSubmit}>Add</SuccessButton>
+      <AddTodoForm onSubmit={handleSubmit}>
+        <AddTodoInput
+          ref={inp}
+          name="add-todo"
+          value={value}
+          onChange={handleChange}
+        />
+        <SuccessButton type="submit">Add</SuccessButton>
+      </AddTodoForm>
     </AddTodoContainer>
   );
 };

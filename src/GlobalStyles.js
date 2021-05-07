@@ -31,6 +31,7 @@ export const SubTitle = styled.h2``;
 export const SuccessButton = styled.button`
   background-color: #008d00;
   border: none;
+  display: block;
   height: 2.4em;
   width: 6.5em;
   outline: none;

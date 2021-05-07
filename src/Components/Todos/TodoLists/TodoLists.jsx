@@ -34,10 +34,10 @@ const TodoLists = () => {
         <h3>All Todos Completed</h3>
       ) : completedTodosNum >= 1 ? (
         <h3>
-          Number Of Completed Todo(s): {completedTodosNum} Out Of {Todos.length}
+          {completedTodosNum} Out Of {Todos.length} Todos Completed
         </h3>
       ) : completedTodosNum < 1 && Todos.length >= 1 ? (
-        <h5>No Completed Todo</h5>
+        <h4>No Completed Todo</h4>
       ) : (
         ""
       )}

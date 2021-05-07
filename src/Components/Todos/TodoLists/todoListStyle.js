@@ -13,6 +13,7 @@ export const TodoList = styled.div`
   border: 1px solid gray;
   border-radius: 0.2em;
   width: 60vw;
+  max-width: 500px;
   height: 30px;
   margin-bottom: 0.5em;
 `;
