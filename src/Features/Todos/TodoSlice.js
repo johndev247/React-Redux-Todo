@@ -13,7 +13,7 @@ const Todos = [
   },
   {
     id: nanoid(),
-    desc: "React State",
+    desc: "Esty Love",
     completed: true,
   },
   {
