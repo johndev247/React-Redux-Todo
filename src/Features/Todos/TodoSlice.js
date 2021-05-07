@@ -13,7 +13,12 @@ const Todos = [
   },
   {
     id: nanoid(),
-    desc: "Esty Love",
+    desc: "John Codes",
+    completed: true,
+  },
+  {
+    id: nanoid(),
+    desc: "Whats New?",
     completed: true,
   },
   {
