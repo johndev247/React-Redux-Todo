@@ -5,11 +5,16 @@ import TodoItems from "../TodoItems/TodoItems";
 
 const TodoLists = () => {
   const Todos = useSelector((state) => state.Todos);
+
   let completedTodosNum = 0;
 
   Todos.map((todo) =>
     todo.completed ? (completedTodosNum += 1) : completedTodosNum
   );
+
+  const saveState = () => {
+    localStorage.setItem("test", JSON.stringify(Todos));
+  };
 
   return (
     <ul>
@@ -37,7 +42,9 @@ const TodoLists = () => {
           {completedTodosNum} Out Of {Todos.length} Todos Completed
         </h3>
       ) : completedTodosNum < 1 && Todos.length >= 1 ? (
-        <h4>No Completed Todo</h4>
+        <h4>No Completed Todo</h4> && (
+          <button onClick={saveState}>Save State</button>
+        )
       ) : (
         ""
       )}

@@ -18,6 +18,7 @@ const TodoItems = ({ id, desc, completed }) => {
   const handleDelete = (e) => {
     Dispatch(DeleteTodo({ id: id }));
   };
+
   return (
     <TodosListContainer>
       <TodoList>

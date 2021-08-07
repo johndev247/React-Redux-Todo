@@ -8,13 +8,11 @@ import {
 } from "./addTodo";
 import { AddTodos } from "../../../Features/Todos/TodoSlice";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 
 const AddTodo = () => {
   const Dispatch = useDispatch();
   const inp = useRef();
   const [value, setValue] = useState("");
-
   const handleChange = (e) => {
     setValue(e.target.value);
   };
