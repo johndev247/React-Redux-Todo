@@ -1,11 +1,6 @@
 import {createSlice, nanoid} from "@reduxjs/toolkit";
 
-if (
-  !JSON.parse(
-    localStorage.getItem("todos") ||
-      JSON.parse(localStorage.getItem("todos").length === 0)
-  )
-) {
+if (!JSON.parse(localStorage.getItem("todos"))) {
   localStorage.setItem("todos", JSON.stringify([]));
 }
 var initialState = JSON.parse(localStorage.getItem("todos"));
