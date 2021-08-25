@@ -1,6 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { SubTitle } from "../../../GlobalStyles";
+import {useSelector} from "react-redux";
+import {SubTitle} from "../../../GlobalStyles";
 import TodoItems from "../TodoItems/TodoItems";
 
 const TodoLists = () => {
@@ -42,9 +42,7 @@ const TodoLists = () => {
           {completedTodosNum} Out Of {Todos.length} Todos Completed
         </h3>
       ) : completedTodosNum < 1 && Todos.length >= 1 ? (
-        <h4>No Completed Todo</h4> && (
-          <button onClick={saveState}>Save State</button>
-        )
+        <h4>No Completed Todo</h4>
       ) : (
         ""
       )}
