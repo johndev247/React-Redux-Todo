@@ -1,10 +1,18 @@
-import React from "react";
-import {useSelector} from "react-redux";
-import {SubTitle} from "../../../GlobalStyles";
+import React, {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {DangerButton, SubTitle} from "../../../GlobalStyles";
 import TodoItems from "../TodoItems/TodoItems";
+import {
+  SetTodo,
+  ReSetTodo,
+  SortByName,
+  SortByDateTime,
+} from "../../../Features/Todos/TodoSlice";
 
 const TodoLists = () => {
   const Todos = useSelector((state) => state.Todos);
+  const [value, setValue] = useState("");
+  const Dispatch = useDispatch();
 
   let completedTodosNum = 0;
 
@@ -12,13 +20,44 @@ const TodoLists = () => {
     todo.completed ? (completedTodosNum += 1) : completedTodosNum
   );
 
-  const saveState = () => {
-    localStorage.setItem("test", JSON.stringify(Todos));
+  const search = () => {
+    const foundTodo = Todos.filter((todo) => todo.desc.includes(value));
+    if (foundTodo.length > 0) {
+      Dispatch(SetTodo(foundTodo));
+    }
   };
 
   return (
     <ul>
-      <SubTitle>Todo Lists</SubTitle>
+      <SubTitle>Task Lists</SubTitle>
+      <div style={{display: "flex", flexDirection: "row"}}>
+        <div style={{marginBottom: 10, marginRight: 10}}>
+          <input
+            value={value}
+            onChange={(e) => {
+              setValue(e.target.value);
+              if (e.target.value === "") {
+                Dispatch(ReSetTodo());
+              }
+            }}
+          />
+          <DangerButton onClick={() => search()}>Search</DangerButton>
+        </div>
+        <div style={{marginBottom: 10}}>
+          <DangerButton
+            style={{backgroundColor: "blue", width: 130, marginRight: 5}}
+            onClick={() => Dispatch(SortByName())}
+          >
+            Sort By Name
+          </DangerButton>
+          <DangerButton
+            style={{backgroundColor: "green", width: 130}}
+            onClick={() => Dispatch(SortByDateTime())}
+          >
+            Sort By DateTime
+          </DangerButton>
+        </div>
+      </div>
       {Todos.map((todo) => {
         return (
           <TodoItems
@@ -26,23 +65,24 @@ const TodoLists = () => {
             id={todo.id}
             desc={todo.desc}
             completed={todo.completed}
+            editMode={todo.editMode}
           />
         );
       })}
       {Todos.length >= 1 ? (
-        <h3> No. Of Todos: {Todos.length}</h3>
+        <h3> No. Of Task: {Todos.length}</h3>
       ) : (
-        <p>Todo List Is Empty</p>
+        <p>Task List Is Empty</p>
       )}
       <hr />
       {completedTodosNum === Todos.length && Todos.length >= 1 ? (
-        <h3>All Todos Completed</h3>
+        <h3>All Tasks Completed</h3>
       ) : completedTodosNum >= 1 ? (
         <h3>
-          {completedTodosNum} Out Of {Todos.length} Todos Completed
+          {completedTodosNum} Out Of {Todos.length} Task Completed
         </h3>
       ) : completedTodosNum < 1 && Todos.length >= 1 ? (
-        <h4>No Completed Todo</h4>
+        <h4>No Completed Task</h4>
       ) : (
         ""
       )}
