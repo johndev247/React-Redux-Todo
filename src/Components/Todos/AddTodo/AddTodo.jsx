@@ -177,6 +177,7 @@ const AddTodo = () => {
                     marginTop: 10,
                     marginBottom: 10,
                     marginRight: 5,
+                    alignSelf: "center",
                   }}
                 >
                   Register
@@ -224,7 +225,13 @@ const AddTodo = () => {
                 />
               </div>
               {error.length > 0 && <p style={{color: "pink"}}>{error}</p>}
-              <div style={{alignSelf: "center"}}>
+              <div
+                style={{
+                  alignSelf: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
                 <DangerButton
                   onClick={() => checkAndLogin()}
                   style={{
@@ -233,6 +240,7 @@ const AddTodo = () => {
                     marginBottom: 10,
                     marginRight: 5,
                     backgroundColor: "green",
+                    alignSelf: "center",
                   }}
                 >
                   Login
