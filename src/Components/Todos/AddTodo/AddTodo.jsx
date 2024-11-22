@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState, useRef} from "react";
 import {nanoid} from "@reduxjs/toolkit";
 import {Title, SuccessButton, DangerButton} from "../../../GlobalStyles";
 import {
@@ -76,12 +76,12 @@ const AddTodo = () => {
     } else if (password1?.length < 4) {
       setError("Please fill in your Password");
     } else {
-      const user = users.find((u) => u?.email == email);
+      const user = users.find((u) => u?.email === email);
       if (!user) {
         setError("Email Does not exist");
       } else if (user && user?.password !== password1) {
         setError("Password Incorrect");
-      } else if (user?.email == email && user?.password == password1) {
+      } else if (user?.email === email && user?.password === password1) {
         Dispatch(ToggleLoginStatus());
         localStorage.setItem("isLoggedIn", JSON.stringify(true));
       }
@@ -183,7 +183,7 @@ const AddTodo = () => {
                 </DangerButton>
                 <span style={{marginBottom: 5}}>
                   Do you have an account?{" "}
-                  <a
+                  <button
                     onClick={() => {
                       setError("");
                       setIsSignUp(false);
@@ -191,7 +191,7 @@ const AddTodo = () => {
                     style={{fontSize: 19, color: "blue"}}
                   >
                     Login
-                  </a>
+                  </button>
                 </span>
               </div>
             </div>
@@ -239,7 +239,7 @@ const AddTodo = () => {
                 </DangerButton>
                 <span style={{marginBottom: 5}}>
                   You dont have an account?
-                  <a
+                  <button
                     onClick={() => {
                       setError("");
                       setIsSignUp(true);
@@ -247,7 +247,7 @@ const AddTodo = () => {
                     style={{fontSize: 19, color: "blue", marginLeft: 5}}
                   >
                     Register
-                  </a>
+                  </button>
                 </span>
               </div>
             </div>
