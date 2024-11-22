@@ -9,7 +9,7 @@ const Header = () => {
         <HeaderTitle>
           <Container>
             <div>
-              <Title>Task Application</Title>
+              <Title>Task Master</Title>
               <h5> By David Joel</h5>
             </div>
           </Container>

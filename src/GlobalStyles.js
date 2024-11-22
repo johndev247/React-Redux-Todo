@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import {createGlobalStyle} from "styled-components";
 import styled from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -46,7 +46,7 @@ export const DangerButton = styled.button`
   background-color: #cf0000;
   border: none;
   height: 1.8em;
-  width: 4.5em;
+  min-width: 4.5em;
   outline: none;
   cursor: pointer;
   border-radius: 0.2em;
